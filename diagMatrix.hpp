@@ -3,55 +3,78 @@ diagMatrix<T>::diagMatrix(const int size)
 {
 	if (size < 0)
 		throw std::length_error("size must be greater then zero");
-	m_size = size;
-	ptr_to_data = new T[m_size];
-	for (int i = 0 ; i < m_size ; i++)
-		for (int j = 0 ; j < m_size ; j++)
-			if (i != j)
-				m_matrix[i][j] = 0;
-		
+	this -> m_size =size;
+	this -> m_matrix.setSize(1);
+	this -> m_matrix[0].setSize(size);		
 }
 
 template <typename T>   
-diagMatrix<T> diagMatrix<T>::operator+(const Matrix<T> & rhs)
+Matrix<T> diagMatrix<T>::operator+(const Matrix<T> & rhs) const
 {
-	if (rhs.m_size != m_size) 
+	int theSize = this -> m_size;
+	if (rhs.getSize() != theSize) 
 		throw std::length_error("matrix must be of equel length"); 
 
-	diagMatrix<T> retVal(m_size);
-	for (int i = 0 ; i < m_size ; i++)
-		retVal[i][i]= m_matrix[i][i]+rhs.m_matrix[i][i];
+	Matrix<T> retVal(rhs);
+	for (int i = 0 ; i < theSize ; i++)
+		retVal[i][i]= this ->m_matrix[0][i]+rhs.m_matrix[i][i];
+	
+	return retVal;
+}
+
+
+template <typename T>   
+Matrix<T> diagMatrix<T>::operator-(const Matrix<T> & rhs) const
+{
+	int theSize = this -> m_size;
+	if (rhs.getSize() != theSize) 
+		throw std::length_error("matrix must be of equel length"); 
+
+	Matrix<T> retVal(rhs);
+	for (int i = 0 ; i < theSize ; i++)
+		retVal[i][i]= this ->m_matrix[0][i]-rhs.m_matrix[i][i];
 	
 	return retVal;
 }
 
 template <typename T>   
-diagMatrix<T> diagMatrix<T>::operator-(const Matrix<T> & rhs)
+MyArray<T> & diagMatrix<T>::operator[](const int i) const
 {
-	if (rhs.m_size != m_size) 
-		throw std::length_error("matrix must be of equel length"); 
+	int theSize = this -> m_size;
+	if (i < 0 || i >= theSize) 
+		throw std::length_error("i must be 0 < i < size");
+	return this ->m_matrix[0];
+}
 
-	diagMatrix<T> retVal(m_size);
-	for (int i = 0 ; i < m_size ; i++)
-		retVal[i][i]= m_matrix[i][i]-rhs.m_matrix[i][i];
-	
+
+template <typename T>   
+diagMatrix<T> diagMatrix<T>::operator*(const diagMatrix<T> & rhs) const
+{
+	int theSize = this -> m_size;
+	if (rhs.getSize() != theSize) 
+		throw std::length_error("matrix must be of equel length");
+
+	diagMatrix<T> retVal(theSize);
+		for (int i = 0 ; i < theSize ; i++)
+			retVal[0][i] = this ->m_matrix[0][i]*rhs.m_matrix[0][i];
+
 	return retVal;
 }
 
+
 template <typename T>   
-Matrix<T> Matrix<T>::operator*(const Matrix<T> & rhs) const
+ostream& operator<<(ostream& out ,  diagMatrix<T> & mat)
 {
-	if (rhs.m_size != m_size) 
-		throw std::length_error("matrix must be of equel length"); 
-	T sum = 0;
-	Matrix<T> retVal(m_size);
-	for (int i = 0 ; i < (m_size) ; i++)
-		for (int j = 0 ; j < (m_size) ; j++)
-		{ 
-			for (int k = 0 ; k < (m_size) ; k++)
-				sum += m_matrix[i][k]*rhs.m_matrix[k][j];
-			retVal[i][j] = sum;
-			sum = 0;
-		}			
-	return retVal;
+	for (int i = 0 ; i < mat.m_size ; i++)
+	{
+		for (int j = 0 ; j < mat.m_size ; j++)
+		{
+			if ( i!=j )
+				out << "0 ";
+			else
+				out << mat.m_matrix[0][i] << " ";
+		}
+		out << endl;
+	}
+	return out;
 }

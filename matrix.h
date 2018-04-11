@@ -6,8 +6,8 @@
 /*
 # Matrix class header
 # By: Ari Sherman
-# Class: CS5201 HW #5
-# Date: 4.4.18
+# Class: CS5201 HW #6
+# Date: 18.4.18
 */
 #ifndef MATRIX_H
 #define MATRIX_H
@@ -44,15 +44,18 @@ template <class T>
 class Matrix
 {
 
-	private:
-		
+	protected:
+
 		MyArray <MyArray<T>> m_matrix;
 
 		int m_size;
 
 		void clear();
 
+
 	public:
+
+
 
 	   /*! defult constructor.
 	  * A new Matrix is craeted with N equals 0. 
@@ -100,7 +103,7 @@ class Matrix
 	  * \post none
 	  */
 
-		Matrix<T>& operator= (const Matrix<T>& rhs);  
+		 Matrix<T>& operator= (const Matrix<T>& rhs) ;  
 
 		/*! move constructor.
 	  * A new Matrix is craeted with Size equel to RHS
@@ -145,7 +148,7 @@ class Matrix
 	  * \post a matrix is born!
 	  */
 
-		virtual Matrix<T> operator*(const Matrix<T> & rhs) const = 0;
+		 Matrix<T> operator*(const Matrix<T> & rhs) const ;
 
 		/*! Matrix - Vector  multiplication
 	  * caclualtes the multiplication of 2 of a Matrix with an Array
@@ -156,7 +159,7 @@ class Matrix
 	  * \post a Vector is born!
 	  */
 
-		virtual MyArray<T> operator*(const MyArray<T> & rhs) const = 0;
+		 MyArray<T> operator*(const MyArray<T> & rhs) const;
 
 		/*! object getter []
 	  *
@@ -175,7 +178,7 @@ class Matrix
 	  * \post none
 	  */
 
-		virtual void scalerMulti(const T scaler) = 0;
+		 void scalerMulti(const T scaler) ;
 
 		/*! Row switcher
 		* switches the array at index i with array at index j and
@@ -185,7 +188,7 @@ class Matrix
 		* \post none
 		*/
 
-		virtual void switchRows (const int i, const int j) = 0                                                                                  ;
+		 void switchRows (const int i, const int j) ;                                                                             ;
 
 	 /*! get size!
 	  *
@@ -212,7 +215,7 @@ class Matrix
 	  * \post a Matrix is born
 	  */
 
-		virtual Matrix<T> transpose() const = 0;
+		 Matrix<T> transpose() const ;
 
 		/*! Stream insertion operator for `Matrix`.
 		 *
@@ -223,7 +226,7 @@ class Matrix
 		 *
 		 */
 
-		friend ostream& operator<< <T> (ostream& out ,  Matrix<T> & mat);
+		 friend ostream& operator<< <T> (ostream& out ,  Matrix<T> & mat);
 };
 
 /*! The compare Class.
