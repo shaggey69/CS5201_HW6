@@ -1,11 +1,11 @@
 /*
-# Diagnoal Matrix class header
+# Symmetric Matrix class header
 # By: Ari Sherman
 # Class: CS5201 HW #6
 # Date: 18.4.18
 */
-#ifndef DIAGMATRIX_H
-#define DIAGMATRIX_H
+#ifndef SYMMATRIC_H
+#define SYMMATRIC_H
 #include "matrix.h"
 using namespace std;
 
@@ -24,10 +24,14 @@ template<class T>
 ostream& operator<< (ostream& out ,  diagMatrix<T> & mat);
 
 template <class T>
-class diagMatrix : public Matrix<T>
+class symMatrix : public Matrix<T>
 { 
 	public:
-		diagMatrix(const int size);
+
+		symMatrix(const int size);
+		symMatrix<T> & operator= (const symMatrix<T> & rhs) ;
+
+		/*
 		diagMatrix<T> operator+(const diagMatrix<T> & rhs) const;
 		diagMatrix<T> operator-(const diagMatrix<T> & rhs) const;
 		diagMatrix<T> operator*(const diagMatrix<T> & rhs) const;
@@ -37,13 +41,13 @@ class diagMatrix : public Matrix<T>
  		diagMatrix<T> transpose() ;
 		friend ostream& operator<< <T> (ostream& out ,  diagMatrix<T> & mat);
 		MyArray<T> & operator[](const int i) const;
-		diagMatrix<T> & operator= (const diagMatrix<T> & rhs) ;
 		void switchRows (const int i, const int j) ; 
+		*/
 
 };
 
 
 
 
-#include "diagMatrix.hpp"
+#include "symMatrix.hpp"
 #endif

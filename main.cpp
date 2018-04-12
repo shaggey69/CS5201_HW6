@@ -1,18 +1,37 @@
+/*
+# main function 
+# By: Ari Sherman
+# Class: CS5201 HW #6
+# Date: 4.18.18
+*/
+
 #include <iostream>
 #include <fstream>
 #include "diagMatrix.h"
+#include "MyArray.h"
 
 using namespace std;
 
 int main()
 {
 	diagMatrix<int> diagTest(5);
+	MyArray<int> arraytest(3);
+
 	diagTest[0][0] = 1;
 	diagTest[1][1] = 2;
 	diagTest[2][2] = 3;
 	diagTest[3][3] = 4;
 	diagTest[4][4] = 5;
-	cout << diagTest;
+
+
+	arraytest[0] = 4;
+	arraytest[1] = 5;
+	arraytest[2] = 6;
+	
+
+	diagTest.switchRows(0,1);
+	cout << diagTest << endl;
+
 
 	return 0;
 }

@@ -1,8 +1,8 @@
 /*
 # Matrix function implments 
 # By: Ari Sherman
-# Class: CS5201 HW #5
-# Date: 4.4.18
+# Class: CS5201 HW #6
+# Date: 4.18.18
 */
 
 template <typename T>   
@@ -28,6 +28,7 @@ Matrix<T>::Matrix (const int n)
 template <typename T>   
 Matrix<T>::Matrix (const Matrix<T> & rhs)
 {
+
 	clear();
 	m_size = rhs.m_size;
 	m_matrix.setSize(m_size);	
@@ -45,6 +46,7 @@ Matrix<T>::~Matrix()
 template <typename T>   
 Matrix<T>& Matrix<T>::operator= (const Matrix<T>& rhs)
 {
+
 	clear();
 	m_size = rhs.m_size;
 	m_matrix.setSize(m_size);

@@ -103,7 +103,7 @@ class Matrix
 	  * \post none
 	  */
 
-		 Matrix<T>& operator= (const Matrix<T>& rhs) ;  
+		virtual Matrix<T>& operator= (const Matrix<T>& rhs) ;  
 
 		/*! move constructor.
 	  * A new Matrix is craeted with Size equel to RHS
@@ -125,7 +125,7 @@ class Matrix
 	  * \post a matrix is born!
 	  */
 
-		virtual Matrix<T> operator+(const Matrix<T> & rhs) const = 0;
+		virtual Matrix<T> operator+(const Matrix<T> & rhs) const ;
 
 
 		/*! - operator
@@ -137,7 +137,7 @@ class Matrix
 	  * \post a matrix is born!
 	  */
 
-		virtual Matrix<T> operator-(const Matrix<T> & rhs) const = 0;
+		virtual Matrix<T> operator-(const Matrix<T> & rhs) const ;
 
 		/*! Matrix multiplication
 	  * caclualtes the multiplication of 2 matrixs and returens
@@ -148,7 +148,7 @@ class Matrix
 	  * \post a matrix is born!
 	  */
 
-		 Matrix<T> operator*(const Matrix<T> & rhs) const ;
+		virtual Matrix<T> operator*(const Matrix<T> & rhs) const ;
 
 		/*! Matrix - Vector  multiplication
 	  * caclualtes the multiplication of 2 of a Matrix with an Array
@@ -159,7 +159,7 @@ class Matrix
 	  * \post a Vector is born!
 	  */
 
-		 MyArray<T> operator*(const MyArray<T> & rhs) const;
+		virtual MyArray<T> operator*(const MyArray<T> & rhs) const;
 
 		/*! object getter []
 	  *
@@ -169,7 +169,7 @@ class Matrix
 	  * \return Will return the MyArray at index i.
 	  */
 
-		MyArray<T> & operator[](const int i) const ;
+		virtual MyArray<T> & operator[](const int i) const ;
 
 		/*! Matrix Scaler multiplication
 	  * caclualtes the multiplication of a matrixs with a scaler
@@ -178,7 +178,7 @@ class Matrix
 	  * \post none
 	  */
 
-		 void scalerMulti(const T scaler) ;
+		virtual void scalerMulti(const T scaler) ;
 
 		/*! Row switcher
 		* switches the array at index i with array at index j and
@@ -188,7 +188,19 @@ class Matrix
 		* \post none
 		*/
 
-		 void switchRows (const int i, const int j) ;                                                                             ;
+		virtual void switchRows (const int i, const int j) ; 
+
+
+
+
+
+
+
+	MyArray <MyArray<T>> getMatrix() const {return m_matrix;}
+
+
+
+
 
 	 /*! get size!
 	  *
@@ -207,7 +219,7 @@ class Matrix
 	  * \post none
 	  */
 
-		void setSize(int s);
+		virtual void setSize(int s);
 
 	/*! Matrix transpose calculator
 	  * Creates a new matrix with is a trasposed version of the CO
@@ -215,7 +227,11 @@ class Matrix
 	  * \post a Matrix is born
 	  */
 
-		 Matrix<T> transpose() const ;
+		virtual Matrix<T> transpose() const ;
+
+		
+
+		virtual insert();
 
 		/*! Stream insertion operator for `Matrix`.
 		 *
@@ -226,7 +242,7 @@ class Matrix
 		 *
 		 */
 
-		 friend ostream& operator<< <T> (ostream& out ,  Matrix<T> & mat);
+		  friend ostream& operator<< <T> (ostream& out ,  Matrix<T> & mat);
 };
 
 /*! The compare Class.

@@ -1,19 +1,41 @@
 /*
-# Diagnoal Matrix function implments 
+# Symmatric Matrix function implments 
 # By: Ari Sherman
 # Class: CS5201 HW #6
 # Date: 4.18.18
 */
 template <typename T>   
-diagMatrix<T>::diagMatrix(const int size)
+symMatrix<T>::symMatrix(const int size)
 {
 	if (size < 0)
 		throw std::length_error("size must be greater then zero");
 	this -> m_size =size;
-	this -> m_matrix.setSize(1);
-	this -> m_matrix[0].setSize(size);		
+
+	if (size/2 == 0)
+		int actuelSize = size/2;
+	else
+		actuelSize = size/2+1;
+
+	this -> m_matrix.setSize(actuelSize);
+	for (int i = 0 ; i < actuelSize ; i++)
+	{
+		m_matrix[i].setSize(size);
+	}
 }
 
+
+template <typename T>   
+diagMatrix<T> & diagMatrix<T>::operator= (const diagMatrix<T> & rhs) 
+{
+	this -> clear();
+	this -> m_size = rhs.getSize();
+	for (int i = 0 ; i < rhs.getSize()/2 ; i++)
+		for (int j = 0 ; j < rhs.getSize()/2 ; j++)
+		{}
+	return *this;
+}
+
+/*
 template <typename T>   
 diagMatrix<T> diagMatrix<T>::operator+(const diagMatrix<T> & rhs) const
 {
@@ -74,15 +96,7 @@ MyArray<T> diagMatrix<T>::operator*(const MyArray<T> & rhs) const
 
 
 
-template <typename T>   
-diagMatrix<T> & diagMatrix<T>::operator= (const diagMatrix<T> & rhs) 
-{
-	this -> clear();
-	this -> m_size = rhs.getSize();
-	for (int i = 0 ; i < rhs.getSize() ; i++)
-		this->m_matrix[0][i]=rhs.m_matrix[0][i];
-	return *this;
-}
+
 
 template <typename T>   
 void  diagMatrix<T>::scalerMulti(const T scaler)
@@ -156,3 +170,4 @@ ostream& operator<<(ostream& out ,  diagMatrix<T> & mat)
 	}
 	return out;
 }
+*/

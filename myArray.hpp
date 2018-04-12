@@ -31,6 +31,7 @@ MyArray<T>::MyArray()
 template <typename T>   
 MyArray<T>::MyArray(const MyArray<T>& rhs)
 {
+
 	m_size = rhs.m_size;
 	ptr_to_data = new T[m_size];
 	arrayCopy(rhs);
