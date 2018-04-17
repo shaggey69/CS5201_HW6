@@ -15,48 +15,47 @@ diagMatrix<T>::diagMatrix(const int size)
 }
 
 template <typename T>   
-diagMatrix<T> diagMatrix<T>::operator+(const diagMatrix<T> & rhs) const
-{
-	cout << "all good" << endl;
-	int theSize = this -> m_size;
-	if (rhs.getSize() != theSize) 
-		throw std::length_error("matrix must be of equel length"); 
-
-	diagMatrix<T> retVal(theSize);
-
-	for (int i = 0 ; i < theSize ; i++)
-		retVal[0][i] = this ->m_matrix[0][i]+rhs.m_matrix[0][i];
-	
-	return retVal;
-}
-
-template <typename T>   
-diagMatrix<T> diagMatrix<T>::operator-(const diagMatrix<T> & rhs) const
+Matrix<T> diagMatrix<T>::operator+(const Matrix<T> & rhs) const
 {
 	int theSize = this -> m_size;
 	if (rhs.getSize() != theSize) 
 		throw std::length_error("matrix must be of equel length"); 
 
-	diagMatrix<T> retVal(theSize);
+	Matrix<T> retVal(rhs);
+
 	for (int i = 0 ; i < theSize ; i++)
-		retVal[0][i] = this ->m_matrix[0][i]-rhs.m_matrix[0][i];
+		retVal[i][i] = this ->m_matrix[0][i]+rhs.getMatrix()[i][i];
 	
 	return retVal;
 }
 
-
 template <typename T>   
-diagMatrix<T> diagMatrix<T>::operator*(const diagMatrix<T> & rhs) const
+Matrix<T> diagMatrix<T>::operator-(const Matrix<T> & rhs) const
 {
-
 	int theSize = this -> m_size;
 	if (rhs.getSize() != theSize) 
-		throw std::length_error("matrix must be of equel length");
+		throw std::length_error("matrix must be of equel length"); 
 
-	diagMatrix<T> retVal(theSize);
-		for (int i = 0 ; i < theSize ; i++)
-			retVal[0][i] = this ->m_matrix[0][i]*rhs.m_matrix[0][i];
+	Matrix<T> retVal(rhs);
 
+	for (int i = 0 ; i < theSize ; i++)
+		retVal[i][i] = this ->m_matrix[0][i]-rhs.getMatrix()[i][i];
+	
+	return retVal;
+}
+
+template <typename T>   
+Matrix<T> diagMatrix<T>::operator*(const Matrix<T> & rhs) const
+{
+	int theSize = this -> m_size;
+	if (rhs.getSize() != theSize) 
+		throw std::length_error("matrix must be of equel length"); 
+
+	Matrix<T> retVal(rhs);
+
+	for (int i = 0 ; i < theSize ; i++)
+		retVal[i][i] = this ->m_matrix[0][i]*rhs.getMatrix()[i][i];
+	
 	return retVal;
 }
 
@@ -94,14 +93,12 @@ void  diagMatrix<T>::scalerMulti(const T scaler)
 }
 
 
-
 template <typename T>   
 MyArray<T> & diagMatrix<T>::operator[](const int i) const
 {
-	int theSize = this -> m_size;
-	if (i < 0 || i >= theSize) 
-		throw std::length_error("i must be 0 < i < size");
-	return this ->m_matrix[0];
+	if (i < 0 || i >= this -> m_size) 
+		throw std::length_error("i must be 0 < i <size"); 	
+	return this -> m_matrix[0];
 }
 
 
@@ -109,6 +106,7 @@ MyArray<T> & diagMatrix<T>::operator[](const int i) const
 template <typename T>   
 void diagMatrix<T>::setSize(const int size)
 {
+	this -> clear();
 	this -> m_matrix[0].setSize(size);
 	return;
 }
@@ -116,13 +114,20 @@ void diagMatrix<T>::setSize(const int size)
 template <typename T>   
 diagMatrix<T> diagMatrix<T>::transpose() 
 {
-	cout << "in?" << endl;
-	int theSize = this -> m_size;
-	diagMatrix<T> retVal(theSize);
-	for (int i = 0 ; i < theSize ; i++)
-		retVal[0][i] = this->m_matrix[0][theSize-i-1] ;
+	
+	diagMatrix<T> retVal(*this);
+
 	return retVal;
 
+}
+
+
+template <typename T>   
+T diagMatrix<T>::operator()(const int i,const int j)
+{
+	if (i != j )
+		return 0;
+	return this->m_matrix[0][i];
 }
 
 
@@ -130,7 +135,7 @@ template <typename T>
 void diagMatrix<T>::switchRows (const int i, const int j) 
 {
 	if (i < 0 || i >=this-> m_size || j < 0 || j >=this-> m_size )
-		throw std::length_error("matrix must be of equel length"); 
+		throw std::length_error("i,j must be 0 < i,j < size"); 
 	T temp;
 	temp = this->m_matrix[0][i];
 	this->m_matrix[0][i] = this->m_matrix [0][j];
@@ -138,6 +143,16 @@ void diagMatrix<T>::switchRows (const int i, const int j)
 	return;
 } 
 
+template <typename T>   
+void diagMatrix<T>::setMatrix(const int i ,const int j, const T x)
+{
+	if (i < 0 || i >=this-> m_size || j < 0 || j >=this-> m_size )
+		throw std::length_error("i,j must be 0 < i,j < size"); 
+	if (i == j)
+		this->m_matrix[0][i] = x;
+	else if (x != 0)
+		throw std::length_error("Diagonial matrix must have value zero for i !=j "); 
+}
 
 
 template <typename T>   
@@ -155,4 +170,12 @@ ostream& operator<<(ostream& out ,  diagMatrix<T> & mat)
 		out << endl;
 	}
 	return out;
+}
+
+template <typename T>   
+istream& operator>>(istream& in ,  diagMatrix<T> & mat)
+{
+	for (int i = 0 ; i < mat.m_size ; i++)
+		in >> mat.m_matrix[0][i];
+	return in;
 }

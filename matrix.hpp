@@ -140,9 +140,11 @@ template <typename T>
 MyArray<T> & Matrix<T>::operator[](const int i) const
 {
 	if (i < 0 || i >= m_size) 
-		throw std::length_error("matrix must be of equel length"); 	
+		throw std::length_error("i must be 0 < i <size"); 	
 	return m_matrix[i];
 }
+
+
 
 template <typename T>   
 void Matrix<T>::switchRows(const int i, const int j)
@@ -157,8 +159,9 @@ void Matrix<T>::switchRows(const int i, const int j)
 }
 
 
+
 template <typename T>   
-void Matrix<T>::setSize(int s)
+void Matrix<T>::setSize(const int s)
 {
 	m_size = s;
 	m_matrix.setSize(s);
@@ -166,6 +169,15 @@ void Matrix<T>::setSize(int s)
 	{
 		m_matrix[i].setSize(s);
 	}
+	return;
+}
+
+
+
+template <typename T>   
+void Matrix<T>::setMatrix(const int i ,const int j, const T x)
+{
+	m_matrix[i][j] = x;
 	return;
 }
 
@@ -182,6 +194,30 @@ Matrix<T> Matrix<T>::transpose() const
 }
 
 template <typename T>   
+T Matrix<T>::operator()(const int i,const int j) const
+{
+	return m_matrix[i][j];
+}
+
+template <typename T>   
+bool Matrix<T>::isDiagDom() const 
+{
+	T sum = 0;
+	for (int i = 0 ; i < m_size ; i++)
+	{
+		for (int j = 0 ; j < m_size ; j++)
+			if (i != j)
+				sum += fabs(m_matrix[i][j]);
+		if (fabs(m_matrix[i][i]) < sum )
+			return false;
+		sum = 0;
+	}
+	return true;
+}
+
+
+
+template <typename T>   
 ostream& operator<<(ostream& out ,  Matrix<T> & mat)
 {
 	for (int i = 0 ; i < mat.m_size ; i++)
@@ -195,3 +231,12 @@ ostream& operator<<(ostream& out ,  Matrix<T> & mat)
 	return out;
 }
 
+
+template <typename T>   
+istream& operator>>(istream& in ,  Matrix<T> & mat)
+{
+	for (int i = 0 ; i < mat.m_size ; i++)
+		for (int j = 0 ; j < mat.m_size ; j++)
+			in >> mat.m_matrix[i][j];
+	return in;
+}

@@ -10,7 +10,7 @@
 using namespace std;
 
 template <typename T>
-class diagMatrix;
+class symMatrix;
 
 /*! Stream insertion operator for `diagMatrix`.
  *
@@ -21,33 +21,34 @@ class diagMatrix;
  *
  */
 template<class T>
-ostream& operator<< (ostream& out ,  diagMatrix<T> & mat);
+ostream& operator<< (ostream& out ,  symMatrix<T> & mat);
+template<class T>
+istream& operator>> (istream& in ,  symMatrix<T> & mat);
 
 template <class T>
 class symMatrix : public Matrix<T>
-{ 
+{ 	
+	private:
+		MyArray<T> & operator[](const int i) const;
 	public:
 
 		symMatrix(const int size);
 		symMatrix<T> & operator= (const symMatrix<T> & rhs) ;
-
-		/*
-		diagMatrix<T> operator+(const diagMatrix<T> & rhs) const;
-		diagMatrix<T> operator-(const diagMatrix<T> & rhs) const;
-		diagMatrix<T> operator*(const diagMatrix<T> & rhs) const;
- 		MyArray<T> operator*(const MyArray<T> & rhs) const;
- 		void scalerMulti(const T scaler);
- 		void setSize(const int size);
- 		diagMatrix<T> transpose() ;
-		friend ostream& operator<< <T> (ostream& out ,  diagMatrix<T> & mat);
-		MyArray<T> & operator[](const int i) const;
+		Matrix<T> operator+(const Matrix<T> & rhs) const;
+		Matrix<T> operator-(const Matrix<T> & rhs) const;
+		Matrix<T> operator*(const Matrix<T> & rhs) const;
+		MyArray<T> operator*(const MyArray<T> & rhs) const;
+		void scalerMulti(const T scaler);
+		void setSize(const int size);
+		symMatrix<T> transpose() ;
+		void setMatrix(const int i ,const int j, const T x);
 		void switchRows (const int i, const int j) ; 
-		*/
+		T operator()(const int i,const int j ) const;
+		bool isDiagDom() const ;
+		friend ostream& operator<< <T> (ostream& out ,  symMatrix<T> & mat);
+		friend istream& operator>> <T> (istream& in ,  symMatrix<T> & mat);
 
 };
-
-
-
 
 #include "symMatrix.hpp"
 #endif

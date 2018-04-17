@@ -11,163 +11,266 @@ symMatrix<T>::symMatrix(const int size)
 		throw std::length_error("size must be greater then zero");
 	this -> m_size =size;
 
-	if (size/2 == 0)
-		int actuelSize = size/2;
-	else
-		actuelSize = size/2+1;
+	this -> m_matrix.setSize(size);
 
-	this -> m_matrix.setSize(actuelSize);
-	for (int i = 0 ; i < actuelSize ; i++)
-	{
-		m_matrix[i].setSize(size);
-	}
+	for (int i = 0 ; i < size ; i++)
+		this -> m_matrix[i].setSize(i+1);
 }
 
-
 template <typename T>   
-diagMatrix<T> & diagMatrix<T>::operator= (const diagMatrix<T> & rhs) 
+symMatrix<T> & symMatrix<T>::operator= (const symMatrix<T> & rhs) 
 {
 	this -> clear();
 	this -> m_size = rhs.getSize();
-	for (int i = 0 ; i < rhs.getSize()/2 ; i++)
-		for (int j = 0 ; j < rhs.getSize()/2 ; j++)
-		{}
+	for (int i = 0 ; i < rhs.getSize() ; i++)
+		{
+			this -> m_matrix[i][i] = rhs(i,i);
+			for (int j = 0 ; j < i ; j++)
+				this -> m_matrix[i][j] = rhs(i,j);
+		}
 	return *this;
 }
 
-/*
 template <typename T>   
-diagMatrix<T> diagMatrix<T>::operator+(const diagMatrix<T> & rhs) const
+Matrix<T> symMatrix<T>::operator+(const Matrix<T> & rhs) const
 {
-	cout << "all good" << endl;
+
 	int theSize = this -> m_size;
 	if (rhs.getSize() != theSize) 
 		throw std::length_error("matrix must be of equel length"); 
 
-	diagMatrix<T> retVal(theSize);
+	Matrix<T> retVal(rhs);
 
-	for (int i = 0 ; i < theSize ; i++)
-		retVal[0][i] = this ->m_matrix[0][i]+rhs.m_matrix[0][i];
+	for (int i = 0 ; i < rhs.getSize() ; i++)
+		{
+			retVal[i][i] = this -> m_matrix[i][i] + retVal[i][i] ;
+			for (int j = 0 ; j < i ; j++)
+			{
+				retVal[i][j] = this -> m_matrix[i][j] + retVal[i][j];
+				retVal[j][i] = this -> m_matrix[i][j] + retVal[j][i];
+			}
+		}
 	
 	return retVal;
 }
 
 template <typename T>   
-diagMatrix<T> diagMatrix<T>::operator-(const diagMatrix<T> & rhs) const
+Matrix<T> symMatrix<T>::operator-(const Matrix<T> & rhs) const
 {
+
 	int theSize = this -> m_size;
 	if (rhs.getSize() != theSize) 
 		throw std::length_error("matrix must be of equel length"); 
 
-	diagMatrix<T> retVal(theSize);
-	for (int i = 0 ; i < theSize ; i++)
-		retVal[0][i] = this ->m_matrix[0][i]-rhs.m_matrix[0][i];
-	
+	Matrix<T> retVal(rhs);
+
+	for (int i = 0 ; i < rhs.getSize() ; i++)
+		{
+			retVal[i][i] = this -> m_matrix[i][i] - retVal[i][i] ;
+			for (int j = 0 ; j < i ; j++)
+			{
+				retVal[i][j] = this -> m_matrix[i][j] - retVal[i][j];
+				retVal[j][i] = this -> m_matrix[i][j] - retVal[j][i];
+			}
+		}	
 	return retVal;
 }
 
-
 template <typename T>   
-diagMatrix<T> diagMatrix<T>::operator*(const diagMatrix<T> & rhs) const
+Matrix<T> symMatrix<T>::operator*(const Matrix<T> & rhs) const
 {
 
+
 	int theSize = this -> m_size;
+
 	if (rhs.getSize() != theSize) 
-		throw std::length_error("matrix must be of equel length");
+		throw std::length_error("matrix must be of equel length"); 
+	T sum = 0;
 
-	diagMatrix<T> retVal(theSize);
-		for (int i = 0 ; i < theSize ; i++)
-			retVal[0][i] = this ->m_matrix[0][i]*rhs.m_matrix[0][i];
+	Matrix<T> retVal(theSize);
 
+	Matrix<T> temp(theSize);
+	for (int i = 0 ; i < theSize ; i++)
+		{
+			temp.setMatrix(i,i,this->m_matrix[i][i]) ;
+			for (int j = 0 ; j < i ; j++)
+			{
+				temp.setMatrix( i, j ,this->m_matrix[i][j]);
+				temp.setMatrix( j, i , this->m_matrix[i][j]);
+			}
+		}
+
+	for (int i = 0 ; i < (theSize) ; i++)
+		for (int j = 0 ; j < (theSize) ; j++)
+		{ 
+			for (int k = 0 ; k < (theSize) ; k++)
+				sum += temp(i,k)*rhs(k,j);
+			retVal.setMatrix(i,j,sum) ;
+			sum = 0;
+		}			
 	return retVal;
 }
 
-
 template <typename T>   
-MyArray<T> diagMatrix<T>::operator*(const MyArray<T> & rhs) const
+MyArray<T> symMatrix<T>::operator*(const MyArray<T> & rhs) const
 {
+
 	int theSize = this -> m_size;
+
+	if (rhs.getSize() != theSize) 
+		throw std::length_error("matrix and vector must be of equel length"); 
+	T sum = 0;
 	MyArray<T> retVal(theSize);
-	for (int i = 0 ; i < theSize ; i++)
-		retVal[i] = this->m_matrix[0][i] * rhs[i] ;
 
+
+	for (int i = 0 ; i < theSize ; i++)
+		{ 
+			for (int k = 0 ; k < theSize ; k++)
+			{
+				if (i >= k)
+					sum += this->m_matrix[i][k]*rhs[k];
+				else
+					sum += this->m_matrix[k][i]*rhs[k];
+			}
+			retVal[i] = sum;
+			sum = 0;
+		}			
 	return retVal;
 }
 
-
-
-
-
 template <typename T>   
-void  diagMatrix<T>::scalerMulti(const T scaler)
+void symMatrix<T>::scalerMulti(const T scaler)
 {
 	int theSize = this -> m_size;
+
 	for (int i = 0 ; i < theSize ; i++)
-		this->m_matrix[0][i] = this->m_matrix[0][i] * scaler ;
+	{
+		this -> m_matrix[i][i] *= scaler;
+		for (int j = 0 ; j < i ; j++)
+			this -> m_matrix[i][j] *= scaler;
+	}	
 	return;
 }
 
 
-
 template <typename T>   
-MyArray<T> & diagMatrix<T>::operator[](const int i) const
-{
-	int theSize = this -> m_size;
-	if (i < 0 || i >= theSize) 
-		throw std::length_error("i must be 0 < i < size");
-	return this ->m_matrix[0];
+void symMatrix<T>::setSize(const int size)
+{	
+	this -> clear();
+	if (size < 0)
+		throw std::length_error("size must be greater then zero");
+	this -> m_size =size;
+
+	this -> m_matrix.setSize(size);
+
+	for (int i = 0 ; i < size ; i++)
+		this -> m_matrix[i].setSize(i+1);
 }
 
 
-
 template <typename T>   
-void diagMatrix<T>::setSize(const int size)
+symMatrix<T> symMatrix<T>::transpose() 
 {
-	this -> m_matrix[0].setSize(size);
-	return;
-}
+	symMatrix<T> retVal(*this);
 
-template <typename T>   
-diagMatrix<T> diagMatrix<T>::transpose() 
-{
-	cout << "in?" << endl;
-	int theSize = this -> m_size;
-	diagMatrix<T> retVal(theSize);
-	for (int i = 0 ; i < theSize ; i++)
-		retVal[0][i] = this->m_matrix[0][theSize-i-1] ;
 	return retVal;
+}
+
+template <typename T>   
+void symMatrix<T>::switchRows (const int i, const int j) 
+{
+		throw std::length_error("no swithcing rows on symmetric Matrix"); 
+		return;
+}
+
+template <typename T>   
+T symMatrix<T>::operator()(const int i,const int j) const
+{
+	if (i >= j)
+		return this -> m_matrix[i][j];
+	return this -> m_matrix[j][i];
 
 }
 
+template <typename T>   
+MyArray<T> & symMatrix<T>::operator[](const int i) const
+{
+	if (i < 0 || i >= this -> m_size) 
+		throw std::length_error("i must be 0 < i <size"); 	
+	return this -> m_matrix[i];
+}
 
 template <typename T>   
-void diagMatrix<T>::switchRows (const int i, const int j) 
+void symMatrix<T>::setMatrix(const int i ,const int j, const T x)
 {
 	if (i < 0 || i >=this-> m_size || j < 0 || j >=this-> m_size )
-		throw std::length_error("matrix must be of equel length"); 
-	T temp;
-	temp = this->m_matrix[0][i];
-	this->m_matrix[0][i] = this->m_matrix [0][j];
-	this->m_matrix[0][j] =temp;
+		throw std::length_error("i,j must be 0 < i,j < size"); 
+	if (i >= j)
+		this->m_matrix[i][j] = x;
+	else
+		this->m_matrix[j][i] = x;
 	return;
-} 
-
-
+}
 
 template <typename T>   
-ostream& operator<<(ostream& out ,  diagMatrix<T> & mat)
+bool symMatrix<T>::isDiagDom() const
+{
+	int theSize = this -> m_size;
+
+	Matrix<T> temp(theSize);
+	for (int i = 0 ; i < theSize ; i++)
+	{
+		temp.setMatrix(i,i,this->m_matrix[i][i]) ;
+		for (int j = 0 ; j < i ; j++)
+		{
+			temp.setMatrix( i, j ,this->m_matrix[i][j]);
+			temp.setMatrix( j, i , this->m_matrix[i][j]);
+		}
+	}
+
+	T sum = 0;
+	for (int i = 0 ; i < theSize ; i++)
+	{
+		for (int j = 0 ; j < theSize ; j++)
+			if (i != j)
+				sum += fabs(temp[i][j]);
+		if (fabs(temp[i][i]) < sum )
+			return false;
+		sum = 0;
+	}
+	return true;
+}
+
+template <typename T>   
+ostream& operator<<(ostream& out ,  symMatrix<T> & mat)
 {
 	for (int i = 0 ; i < mat.m_size ; i++)
 	{
 		for (int j = 0 ; j < mat.m_size ; j++)
 		{
-			if ( i!=j )
-				out << "0 ";
+			if ( i==j )
+				out << mat.m_matrix[i][i] << " ";
+			else if (j > i)
+				out << mat.m_matrix[j][i] << " ";
 			else
-				out << mat.m_matrix[0][i] << " ";
+				out << mat.m_matrix[i][j] << " ";
 		}
 		out << endl;
 	}
 	return out;
 }
-*/
+
+template <typename T>   
+istream& operator>>(istream& in ,  symMatrix<T> & mat)
+{
+	T trash = 0;
+	for (int i = 0 ; i < mat.m_size ; i++)
+	{
+		for (int j = 0 ; j < i ; j++)
+			in >> mat.m_matrix[i][j];
+		in >> mat.m_matrix[i][i];
+		for (int k = i+1; k < mat.m_size ; k++)
+			in >> trash;
+	}
+	return in;
+}

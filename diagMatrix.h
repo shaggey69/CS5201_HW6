@@ -22,22 +22,28 @@ class diagMatrix;
  */
 template<class T>
 ostream& operator<< (ostream& out ,  diagMatrix<T> & mat);
+template<class T>
+istream& operator>> (istream& in ,  diagMatrix<T> & mat);
 
 template <class T>
 class diagMatrix : public Matrix<T>
 { 
+	private:
+	 		MyArray<T> & operator[](const int i) const;
 	public:
 		diagMatrix(const int size);
-		diagMatrix<T> operator+(const diagMatrix<T> & rhs) const;
-		diagMatrix<T> operator-(const diagMatrix<T> & rhs) const;
-		diagMatrix<T> operator*(const diagMatrix<T> & rhs) const;
+		diagMatrix<T> & operator= (const diagMatrix<T> & rhs) ;
+		Matrix<T> operator+(const Matrix<T> & rhs) const;
+		Matrix<T> operator-(const Matrix<T> & rhs) const;
+		Matrix<T> operator*(const Matrix<T> & rhs) const;
  		MyArray<T> operator*(const MyArray<T> & rhs) const;
  		void scalerMulti(const T scaler);
  		void setSize(const int size);
  		diagMatrix<T> transpose() ;
+ 		T operator()(const int i,const int j );
+ 		void setMatrix(const int i ,const int j, const T x);
 		friend ostream& operator<< <T> (ostream& out ,  diagMatrix<T> & mat);
-		MyArray<T> & operator[](const int i) const;
-		diagMatrix<T> & operator= (const diagMatrix<T> & rhs) ;
+		friend istream& operator>> <T> (istream& in ,  diagMatrix<T> & mat);
 		void switchRows (const int i, const int j) ; 
 
 };

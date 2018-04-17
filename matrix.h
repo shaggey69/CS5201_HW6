@@ -33,6 +33,9 @@ class Matrix;
 template<class T>
 ostream& operator<< (ostream& out ,  Matrix<T> & mat);
 
+template<class T>
+istream& operator>> (istream& in ,  Matrix<T> & mat);
+
 
 /*! Matrix calss
  * Reprents a NxN Matrix
@@ -169,7 +172,7 @@ class Matrix
 	  * \return Will return the MyArray at index i.
 	  */
 
-		virtual MyArray<T> & operator[](const int i) const ;
+		 MyArray<T> & operator[](const int i) const ;
 
 		/*! Matrix Scaler multiplication
 	  * caclualtes the multiplication of a matrixs with a scaler
@@ -194,8 +197,6 @@ class Matrix
 
 
 
-
-
 	MyArray <MyArray<T>> getMatrix() const {return m_matrix;}
 
 
@@ -209,7 +210,7 @@ class Matrix
 	  * \return size of Martix
 	  */
 
-
+ 
 		int getSize() const {return m_size;};
 
 
@@ -219,7 +220,10 @@ class Matrix
 	  * \post none
 	  */
 
-		virtual void setSize(int s);
+		virtual void setSize(const int s);
+
+		virtual void setMatrix(const int i ,const int j, const T x);
+
 
 	/*! Matrix transpose calculator
 	  * Creates a new matrix with is a trasposed version of the CO
@@ -231,7 +235,9 @@ class Matrix
 
 		
 
-		virtual insert();
+		virtual T operator()(const int i,const int j ) const;
+
+		virtual bool isDiagDom() const ;
 
 		/*! Stream insertion operator for `Matrix`.
 		 *
@@ -243,6 +249,10 @@ class Matrix
 		 */
 
 		  friend ostream& operator<< <T> (ostream& out ,  Matrix<T> & mat);
+
+
+		  friend istream& operator>> <T> (istream& in ,  Matrix<T> & mat);
+
 };
 
 /*! The compare Class.
