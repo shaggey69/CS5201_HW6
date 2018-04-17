@@ -123,6 +123,54 @@ void MyArray<T>::arrayCopy(const MyArray<T> & source)
 
 }
 
+template <typename T>   
+bool MyArray<T>::isZeroVec()
+{
+	for (int i = 0 ; i < m_size ; i++)
+		if (ptr_to_data[i] != 0)
+			return false;
+	return true;
+}
+
+template <typename T>   
+T MyArray<T>::operator*(const  MyArray<T> & rhs) const
+{
+	T retVal;
+	for (int i = 0; i < rhs.getSize(); i++)
+		retVal += ptr_to_data[i]*rhs[i];
+	return retVal;
+}
+
+
+template <typename T>   
+ MyArray<T> MyArray<T>::operator*(const  T & scaler) const
+{
+	 MyArray<T> retVal(m_size);
+	for (int i = 0; i < m_size; i++)
+		retVal[i] = ptr_to_data[i] * scaler;
+	return retVal;
+}
+
+template <typename T>   
+MyArray<T> MyArray<T>::operator+(const  MyArray<T> & rhs) const
+{
+	MyArray<T> retVal (rhs.getSize());
+	for (int i = 0; i < rhs.getSize(); i++)
+		retVal[i] = ptr_to_data[i] + rhs.ptr_to_data[i];
+	return retVal;
+}
+
+template <typename T>   
+MyArray<T> MyArray<T>::operator-(const  MyArray<T> & rhs) const
+{
+	MyArray<T> retVal (rhs.getSize());
+	for (int i = 0; i < rhs.getSize(); i++)
+		retVal[i] = ptr_to_data[i] - rhs.ptr_to_data[i];
+	return retVal;
+}
+
+
+
 //streamer
 template <typename T>   
 ostream& operator<< (ostream& out , MyArray<T> & arr)

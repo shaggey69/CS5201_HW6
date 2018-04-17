@@ -11,15 +11,18 @@
 #include "diagMatrix.h"
 #include "bandedMatrix.h"
 #include "myArray.h"
+#include "deepdec.h"
+
 
 using namespace std;
 
 int main(int argc, char *argv[])
 {
 	int dimNum = 0;
-	Matrix<double> mySymMatrix(dimNum);
+	symMatrix<double> mySymMatrix(dimNum);
 	MyArray<double> my_array;
-
+	MyArray<double> my_ans;
+	deepDec<double> my_steep;
 	ifstream in;
 
 	if (argc < 2)
@@ -43,6 +46,8 @@ int main(int argc, char *argv[])
 			for (int i = 0 ; i < dimNum ; i++)
 				in >> my_array[i];
 
+			my_ans = my_steep(mySymMatrix,my_array);
+			cout << my_ans;
 
 
 		}

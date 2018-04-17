@@ -182,6 +182,17 @@ public:
  * \return the modified output stream.
  *
  */
+
+  bool isZeroVec();
+
+  T operator*(const  MyArray<T> & rhs) const;
+  
+  MyArray<T> operator*(const  T & scaler) const;
+
+  MyArray<T> operator+(const  MyArray<T> & rhs) const;
+
+  MyArray<T> operator-(const  MyArray<T> & rhs) const;
+
   friend ostream& operator<< <T> (ostream& out , MyArray<T> & arr);
 
 }; 
