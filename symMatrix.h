@@ -37,6 +37,14 @@ ostream& operator<< (ostream& out ,  symMatrix<T> & mat);
 template<class T>
 istream& operator>> (istream& in ,  symMatrix<T> & mat);
 
+
+/*! symMatrix calss
+ * Reprents a NxN symMatrix Matrix
+ * contains a:
+ * m_size - represting the size of N
+ * m_matrix - an myArray of myArrays represting the matrix
+ */
+
 template <class T>
 class symMatrix : public Matrix<T>
 { 	

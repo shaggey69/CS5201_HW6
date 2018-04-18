@@ -2,7 +2,7 @@
  *
  * the Diag matrix class
  */
-/*
+
 /*
 # Diagnoal Matrix class header
 # By: Ari Sherman
@@ -39,6 +39,14 @@ ostream& operator<< (ostream& out ,  diagMatrix<T> & mat);
 
 template<class T>
 istream& operator>> (istream& in ,  diagMatrix<T> & mat);
+
+
+/*! diagMatrix calss
+ * Reprents a NxN diagMatrix Matrix
+ * contains a:
+ * m_size - represting the size of N
+ * m_matrix - an myArray of myArrays represting the matrix
+ */
 
 template <class T>
 class diagMatrix : public Matrix<T>

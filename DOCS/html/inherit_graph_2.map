@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classMatrix.html" title="Matrix\&lt; T \&gt;" alt="" coords="5,56,96,83"/>
+<area shape="rect" id="node2" href="$classbandedMatrix.html" title="bandedMatrix\&lt; T \&gt;" alt="" coords="144,5,276,32"/>
+<area shape="rect" id="node3" href="$classdiagMatrix.html" title="diagMatrix\&lt; T \&gt;" alt="" coords="153,56,267,83"/>
+<area shape="rect" id="node4" href="$classsymMatrix.html" title="symMatrix\&lt; T \&gt;" alt="" coords="153,107,267,133"/>
+</map>

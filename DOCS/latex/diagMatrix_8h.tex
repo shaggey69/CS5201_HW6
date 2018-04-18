@@ -1,0 +1,69 @@
+\hypertarget{diagMatrix_8h}{}\section{diag\+Matrix.\+h File Reference}
+\label{diagMatrix_8h}\index{diag\+Matrix.\+h@{diag\+Matrix.\+h}}
+{\ttfamily \#include \char`\"{}matrix.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}diag\+Matrix.\+hpp\char`\"{}}\\*
+Include dependency graph for diag\+Matrix.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{diagMatrix_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classdiagMatrix}{diag\+Matrix$<$ T $>$}
+\item 
+class \hyperlink{classdiagMatrix}{diag\+Matrix$<$ T $>$}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T $>$ }\\ostream \& \hyperlink{diagMatrix_8h_abe5f9847580ef70dd8a0dd531000bebc}{operator$<$$<$} (ostream \&out, \hyperlink{classdiagMatrix}{diag\+Matrix}$<$ T $>$ \&mat)
+\item 
+{\footnotesize template$<$class T $>$ }\\istream \& \hyperlink{diagMatrix_8h_acaf6645ef39968777651026f133ad7f9}{operator$>$$>$} (istream \&in, \hyperlink{classdiagMatrix}{diag\+Matrix}$<$ T $>$ \&mat)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+the Diag matrix class 
+
+\subsection{Function Documentation}
+\index{diag\+Matrix.\+h@{diag\+Matrix.\+h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!diag\+Matrix.\+h@{diag\+Matrix.\+h}}
+\subsubsection[{\texorpdfstring{operator$<$$<$(ostream \&out, diag\+Matrix$<$ T $>$ \&mat)}{operator<<(ostream &out, diagMatrix< T > &mat)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out, }
+\item[{{\bf diag\+Matrix}$<$ T $>$ \&}]{mat}
+\end{DoxyParamCaption}
+)}\hypertarget{diagMatrix_8h_abe5f9847580ef70dd8a0dd531000bebc}{}\label{diagMatrix_8h_abe5f9847580ef70dd8a0dd531000bebc}
+Stream insertion operator for {\ttfamily \hyperlink{classdiagMatrix}{diag\+Matrix}}.
+
+\begin{DoxyPrecond}{Precondition}
+Stream insertion operator is defined for {\ttfamily T}. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The contents of the m\+\_\+matrix are printed to the ouptut stream. Each array is printed on a new row. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+the modified output stream. 
+\end{DoxyReturn}
+\index{diag\+Matrix.\+h@{diag\+Matrix.\+h}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!diag\+Matrix.\+h@{diag\+Matrix.\+h}}
+\subsubsection[{\texorpdfstring{operator$>$$>$(istream \&in, diag\+Matrix$<$ T $>$ \&mat)}{operator>>(istream &in, diagMatrix< T > &mat)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ istream\& operator$>$$>$ (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{in, }
+\item[{{\bf diag\+Matrix}$<$ T $>$ \&}]{mat}
+\end{DoxyParamCaption}
+)}\hypertarget{diagMatrix_8h_acaf6645ef39968777651026f133ad7f9}{}\label{diagMatrix_8h_acaf6645ef39968777651026f133ad7f9}
+Stream insertion operator for {\ttfamily \hyperlink{classdiagMatrix}{diag\+Matrix}}.
+
+\begin{DoxyPrecond}{Precondition}
+Stream insertion operator is defined for {\ttfamily T}. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+the m\+\_\+matrix if filled with the input 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+the modified input stream. 
+\end{DoxyReturn}

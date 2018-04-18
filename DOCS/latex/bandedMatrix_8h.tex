@@ -1,0 +1,69 @@
+\hypertarget{bandedMatrix_8h}{}\section{banded\+Matrix.\+h File Reference}
+\label{bandedMatrix_8h}\index{banded\+Matrix.\+h@{banded\+Matrix.\+h}}
+{\ttfamily \#include \char`\"{}matrix.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}banded\+Matrix.\+hpp\char`\"{}}\\*
+Include dependency graph for banded\+Matrix.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{bandedMatrix_8h__incl}
+\end{center}
+\end{figure}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classbandedMatrix}{banded\+Matrix$<$ T $>$}
+\item 
+class \hyperlink{classbandedMatrix}{banded\+Matrix$<$ T $>$}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class T $>$ }\\ostream \& \hyperlink{bandedMatrix_8h_a602e7ac2218a26045c118fe7e2cc138d}{operator$<$$<$} (ostream \&out, \hyperlink{classbandedMatrix}{banded\+Matrix}$<$ T $>$ \&mat)
+\item 
+{\footnotesize template$<$class T $>$ }\\istream \& \hyperlink{bandedMatrix_8h_a617a02aa4b32663b690ec9950ed99815}{operator$>$$>$} (istream \&in, \hyperlink{classbandedMatrix}{banded\+Matrix}$<$ T $>$ \&mat)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+the bandede matrix class 
+
+\subsection{Function Documentation}
+\index{banded\+Matrix.\+h@{banded\+Matrix.\+h}!operator$<$$<$@{operator$<$$<$}}
+\index{operator$<$$<$@{operator$<$$<$}!banded\+Matrix.\+h@{banded\+Matrix.\+h}}
+\subsubsection[{\texorpdfstring{operator$<$$<$(ostream \&out, banded\+Matrix$<$ T $>$ \&mat)}{operator<<(ostream &out, bandedMatrix< T > &mat)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ ostream\& operator$<$$<$ (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out, }
+\item[{{\bf banded\+Matrix}$<$ T $>$ \&}]{mat}
+\end{DoxyParamCaption}
+)}\hypertarget{bandedMatrix_8h_a602e7ac2218a26045c118fe7e2cc138d}{}\label{bandedMatrix_8h_a602e7ac2218a26045c118fe7e2cc138d}
+Stream insertion operator for {\ttfamily \hyperlink{classbandedMatrix}{banded\+Matrix}}.
+
+\begin{DoxyPrecond}{Precondition}
+Stream insertion operator is defined for {\ttfamily T}. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The contents of the m\+\_\+matrix are printed to the ouptut stream. Each array is printed on a new row. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+the modified output stream. 
+\end{DoxyReturn}
+\index{banded\+Matrix.\+h@{banded\+Matrix.\+h}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!banded\+Matrix.\+h@{banded\+Matrix.\+h}}
+\subsubsection[{\texorpdfstring{operator$>$$>$(istream \&in, banded\+Matrix$<$ T $>$ \&mat)}{operator>>(istream &in, bandedMatrix< T > &mat)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ istream\& operator$>$$>$ (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{in, }
+\item[{{\bf banded\+Matrix}$<$ T $>$ \&}]{mat}
+\end{DoxyParamCaption}
+)}\hypertarget{bandedMatrix_8h_a617a02aa4b32663b690ec9950ed99815}{}\label{bandedMatrix_8h_a617a02aa4b32663b690ec9950ed99815}
+Stream insertion operator for {\ttfamily \hyperlink{classbandedMatrix}{banded\+Matrix}}.
+
+\begin{DoxyPrecond}{Precondition}
+Stream insertion operator is defined for {\ttfamily T}. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+the m\+\_\+matrix if filled with the input 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+the modified input stream. 
+\end{DoxyReturn}

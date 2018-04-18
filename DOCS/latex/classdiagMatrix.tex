@@ -1,0 +1,320 @@
+\hypertarget{classdiagMatrix}{}\section{diag\+Matrix$<$ T $>$ Class Template Reference}
+\label{classdiagMatrix}\index{diag\+Matrix$<$ T $>$@{diag\+Matrix$<$ T $>$}}
+
+
+{\ttfamily \#include $<$diag\+Matrix.\+h$>$}
+
+
+
+Inheritance diagram for diag\+Matrix$<$ T $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=166pt]{classdiagMatrix__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for diag\+Matrix$<$ T $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{classdiagMatrix__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classdiagMatrix_a93b7d45546b51cee1936ebcfe88abf5b}{diag\+Matrix} (const int size)
+\item 
+\hyperlink{classdiagMatrix}{diag\+Matrix}$<$ T $>$ \& \hyperlink{classdiagMatrix_a705486521d9b35d232faef4ffc0906f4}{operator=} (const \hyperlink{classdiagMatrix}{diag\+Matrix}$<$ T $>$ \&rhs)
+\item 
+\hyperlink{classMatrix}{Matrix}$<$ T $>$ \hyperlink{classdiagMatrix_aaeffbe6c2c66c9ec18ed99c4087d6b01}{operator+} (const \hyperlink{classMatrix}{Matrix}$<$ T $>$ \&rhs) const 
+\item 
+\hyperlink{classMatrix}{Matrix}$<$ T $>$ \hyperlink{classdiagMatrix_ab6cfc841c587e407454270ba86f68084}{operator-\/} (const \hyperlink{classMatrix}{Matrix}$<$ T $>$ \&rhs) const 
+\item 
+\hyperlink{classMatrix}{Matrix}$<$ T $>$ \hyperlink{classdiagMatrix_a8828d9c0ffb5b55134ee13c308fd8032}{operator$\ast$} (const \hyperlink{classMatrix}{Matrix}$<$ T $>$ \&rhs) const 
+\item 
+\hyperlink{classMyArray}{My\+Array}$<$ T $>$ \hyperlink{classdiagMatrix_a20fa62079a31063c7511574d70f6d198}{operator$\ast$} (const \hyperlink{classMyArray}{My\+Array}$<$ T $>$ \&rhs) const 
+\item 
+void \hyperlink{classdiagMatrix_a319efd9720b568daa3ea939ba785b6d6}{scaler\+Multi} (const T scaler)
+\item 
+void \hyperlink{classdiagMatrix_a4d5e30a4541016af727a1bcd0859d0bf}{set\+Size} (const int size)
+\item 
+\hyperlink{classdiagMatrix}{diag\+Matrix}$<$ T $>$ \hyperlink{classdiagMatrix_ae7656b1bf72b5a0dc3feca7c059c5443}{transpose} ()
+\item 
+T \hyperlink{classdiagMatrix_ab287eafb851eb4ef803bf9fcfcc563ee}{operator()} (const int i, const int j)
+\item 
+void \hyperlink{classdiagMatrix_a73390f0110a83969c8a00f2e0edeb8ca}{set\+Matrix} (const int i, const int j, const T x)
+\item 
+void \hyperlink{classdiagMatrix_a5ca87626d38ddff137d187e77d88c442}{switch\+Rows} (const int i, const int j)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \hyperlink{classdiagMatrix_a0f1009e2f7ff04ee7bce62b30ea36c16}{operator} (ostream \&out, \hyperlink{classdiagMatrix}{diag\+Matrix}$<$ T $>$ \&mat)
+\item 
+istream \& \hyperlink{classdiagMatrix_a867c8d02a49ed9a614dbbeb543ace706}{operator$>$$>$} (istream \&in, \hyperlink{classdiagMatrix}{diag\+Matrix}$<$ T $>$ \&mat)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\\*
+class diag\+Matrix$<$ T $>$}
+
+\hyperlink{classdiagMatrix}{diag\+Matrix} calss Reprents a NxN \hyperlink{classdiagMatrix}{diag\+Matrix} \hyperlink{classMatrix}{Matrix} contains a\+: m\+\_\+size -\/ represting the size of N m\+\_\+matrix -\/ an my\+Array of my\+Arrays represting the matrix 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{diag\+Matrix@{diag\+Matrix}!diag\+Matrix@{diag\+Matrix}}
+\index{diag\+Matrix@{diag\+Matrix}!diag\+Matrix@{diag\+Matrix}}
+\subsubsection[{\texorpdfstring{diag\+Matrix(const int size)}{diagMatrix(const int size)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf diag\+Matrix}$<$ T $>$\+::{\bf diag\+Matrix} (
+\begin{DoxyParamCaption}
+\item[{const int}]{size}
+\end{DoxyParamCaption}
+)}\hypertarget{classdiagMatrix_a93b7d45546b51cee1936ebcfe88abf5b}{}\label{classdiagMatrix_a93b7d45546b51cee1936ebcfe88abf5b}
+initialize constructor. A new \hyperlink{classdiagMatrix}{diag\+Matrix} is craeted with dimensions equel to \char`\"{}size\char`\"{} \begin{DoxyPrecond}{Precondition}
+size must be bigger then 0! Will throw a a length Error otherwise 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+a \hyperlink{classdiagMatrix}{diag\+Matrix} is born! 
+\end{DoxyPostcond}
+
+
+\subsection{Member Function Documentation}
+\index{diag\+Matrix@{diag\+Matrix}!operator()@{operator()}}
+\index{operator()@{operator()}!diag\+Matrix@{diag\+Matrix}}
+\subsubsection[{\texorpdfstring{operator()(const int i, const int j)}{operator()(const int i, const int j)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ T {\bf diag\+Matrix}$<$ T $>$\+::{\bf operator}() (
+\begin{DoxyParamCaption}
+\item[{const int}]{i, }
+\item[{const int}]{j}
+\end{DoxyParamCaption}
+)}\hypertarget{classdiagMatrix_ab287eafb851eb4ef803bf9fcfcc563ee}{}\label{classdiagMatrix_ab287eafb851eb4ef803bf9fcfcc563ee}
+operaotr () returns value of m\+\_\+matrix\mbox{[}i\mbox{]}\mbox{[}j\mbox{]} \begin{DoxyPrecond}{Precondition}
+0 $<$ i,j $<$size 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+none 
+\end{DoxyPostcond}
+\index{diag\+Matrix@{diag\+Matrix}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!diag\+Matrix@{diag\+Matrix}}
+\subsubsection[{\texorpdfstring{operator$\ast$(const Matrix$<$ T $>$ \&rhs) const }{operator*(const Matrix< T > &rhs) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf Matrix}$<$ T $>$ {\bf diag\+Matrix}$<$ T $>$\+::{\bf operator}$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix}$<$ T $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classdiagMatrix_a8828d9c0ffb5b55134ee13c308fd8032}{}\label{classdiagMatrix_a8828d9c0ffb5b55134ee13c308fd8032}
+\hyperlink{classMatrix}{Matrix} multiplication caclualtes the multiplication of \hyperlink{classdiagMatrix}{diag\+Matrix} and matrix, returens a new matrix with the calculated values \begin{DoxyPrecond}{Precondition}
+size of CO must be equel to rhs, Will throw a a length Error otherwise. \char`\"{}$\ast$\char`\"{} binary operator must be defiend for T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+a matrix is born! 
+\end{DoxyPostcond}
+
+
+Reimplemented from \hyperlink{classMatrix_a358516deb804403fb91256a5a269d1e2}{Matrix$<$ T $>$}.
+
+\index{diag\+Matrix@{diag\+Matrix}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!diag\+Matrix@{diag\+Matrix}}
+\subsubsection[{\texorpdfstring{operator$\ast$(const My\+Array$<$ T $>$ \&rhs) const }{operator*(const MyArray< T > &rhs) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf My\+Array}$<$ T $>$ {\bf diag\+Matrix}$<$ T $>$\+::{\bf operator}$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf My\+Array}$<$ T $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classdiagMatrix_a20fa62079a31063c7511574d70f6d198}{}\label{classdiagMatrix_a20fa62079a31063c7511574d70f6d198}
+\hyperlink{classMatrix}{Matrix} -\/ Vector multiplication caclualtes the multiplication of a \hyperlink{classdiagMatrix}{diag\+Matrix} with an Array and returens a new Vector with the calculated values \begin{DoxyPrecond}{Precondition}
+size of CO must be equel to rhs array size! Will throw a a length Error otherwise. \char`\"{}$\ast$\char`\"{} binary operator must be defiend for T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+a Vector is born! 
+\end{DoxyPostcond}
+
+
+Reimplemented from \hyperlink{classMatrix_a70c46247336f74291cc3e1b2fb800a34}{Matrix$<$ T $>$}.
+
+\index{diag\+Matrix@{diag\+Matrix}!operator+@{operator+}}
+\index{operator+@{operator+}!diag\+Matrix@{diag\+Matrix}}
+\subsubsection[{\texorpdfstring{operator+(const Matrix$<$ T $>$ \&rhs) const }{operator+(const Matrix< T > &rhs) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf Matrix}$<$ T $>$ {\bf diag\+Matrix}$<$ T $>$\+::{\bf operator}+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix}$<$ T $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classdiagMatrix_aaeffbe6c2c66c9ec18ed99c4087d6b01}{}\label{classdiagMatrix_aaeffbe6c2c66c9ec18ed99c4087d6b01}
+
+\begin{DoxyItemize}
+\item operator adds the sum of CO to rhs, retures a new \hyperlink{classMatrix}{Matrix} with the calculated values \begin{DoxyPrecond}{Precondition}
+size of CO must be equel to rhs, Will throw a a length Error otherwise. \char`\"{}+\char`\"{} binary operator must be defiend for T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+a matrix is born! 
+\end{DoxyPostcond}
+
+\end{DoxyItemize}
+
+Reimplemented from \hyperlink{classMatrix_a9db4b4074daa2112eab910c7902fc5d9}{Matrix$<$ T $>$}.
+
+\index{diag\+Matrix@{diag\+Matrix}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!diag\+Matrix@{diag\+Matrix}}
+\subsubsection[{\texorpdfstring{operator-\/(const Matrix$<$ T $>$ \&rhs) const }{operator-(const Matrix< T > &rhs) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf Matrix}$<$ T $>$ {\bf diag\+Matrix}$<$ T $>$\+::{\bf operator}-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix}$<$ T $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classdiagMatrix_ab6cfc841c587e407454270ba86f68084}{}\label{classdiagMatrix_ab6cfc841c587e407454270ba86f68084}
+
+\begin{DoxyItemize}
+\item operator adds the sum of CO to rhs, retures a new \hyperlink{classMatrix}{Matrix} with the calculated values \begin{DoxyPrecond}{Precondition}
+size of CO must be equel to rhs, Will throw a a length Error otherwise. \char`\"{}-\/\char`\"{} binary operator must be defiend for T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+a matrix is born! 
+\end{DoxyPostcond}
+
+\end{DoxyItemize}
+
+Reimplemented from \hyperlink{classMatrix_a06a7f018ed353f0a8239a80ec8403be6}{Matrix$<$ T $>$}.
+
+\index{diag\+Matrix@{diag\+Matrix}!operator=@{operator=}}
+\index{operator=@{operator=}!diag\+Matrix@{diag\+Matrix}}
+\subsubsection[{\texorpdfstring{operator=(const diag\+Matrix$<$ T $>$ \&rhs)}{operator=(const diagMatrix< T > &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf diag\+Matrix}$<$ T $>$ \& {\bf diag\+Matrix}$<$ T $>$\+::{\bf operator}= (
+\begin{DoxyParamCaption}
+\item[{const {\bf diag\+Matrix}$<$ T $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+)}\hypertarget{classdiagMatrix_a705486521d9b35d232faef4ffc0906f4}{}\label{classdiagMatrix_a705486521d9b35d232faef4ffc0906f4}
+= assignment turns the CO \hyperlink{classdiagMatrix}{diag\+Matrix} into R\+HS \hyperlink{classdiagMatrix}{diag\+Matrix} \begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+none 
+\end{DoxyPostcond}
+\index{diag\+Matrix@{diag\+Matrix}!scaler\+Multi@{scaler\+Multi}}
+\index{scaler\+Multi@{scaler\+Multi}!diag\+Matrix@{diag\+Matrix}}
+\subsubsection[{\texorpdfstring{scaler\+Multi(const T scaler)}{scalerMulti(const T scaler)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf diag\+Matrix}$<$ T $>$\+::scaler\+Multi (
+\begin{DoxyParamCaption}
+\item[{const T}]{scaler}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classdiagMatrix_a319efd9720b568daa3ea939ba785b6d6}{}\label{classdiagMatrix_a319efd9720b568daa3ea939ba785b6d6}
+\hyperlink{classMatrix}{Matrix} Scaler multiplication caclualtes the multiplication of a \hyperlink{classdiagMatrix}{diag\+Matrix} with a scaler and modifies the CO m\+\_\+matrix with calculation \begin{DoxyPrecond}{Precondition}
+\char`\"{}$\ast$\char`\"{} binary operator must be defiend for T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+none 
+\end{DoxyPostcond}
+
+
+Reimplemented from \hyperlink{classMatrix_aba8c673e5ca3bcc56a9bad1a1c0fed23}{Matrix$<$ T $>$}.
+
+\index{diag\+Matrix@{diag\+Matrix}!set\+Matrix@{set\+Matrix}}
+\index{set\+Matrix@{set\+Matrix}!diag\+Matrix@{diag\+Matrix}}
+\subsubsection[{\texorpdfstring{set\+Matrix(const int i, const int j, const T x)}{setMatrix(const int i, const int j, const T x)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf diag\+Matrix}$<$ T $>$\+::set\+Matrix (
+\begin{DoxyParamCaption}
+\item[{const int}]{i, }
+\item[{const int}]{j, }
+\item[{const T}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classdiagMatrix_a73390f0110a83969c8a00f2e0edeb8ca}{}\label{classdiagMatrix_a73390f0110a83969c8a00f2e0edeb8ca}
+Set \hyperlink{classMatrix}{Matrix} changes the value of m\+\_\+matrix\mbox{[}i\mbox{]}\mbox{[}j\mbox{]} and m\+\_\+matrix\mbox{[}j\mbox{]}\mbox{[}i\mbox{]} to x \begin{DoxyPrecond}{Precondition}
+0 $<$ i,j $<$size 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+modified m\+\_\+matrix 
+\end{DoxyPostcond}
+
+
+Reimplemented from \hyperlink{classMatrix_a0cf31a462707441cbbab037190c88f33}{Matrix$<$ T $>$}.
+
+\index{diag\+Matrix@{diag\+Matrix}!set\+Size@{set\+Size}}
+\index{set\+Size@{set\+Size}!diag\+Matrix@{diag\+Matrix}}
+\subsubsection[{\texorpdfstring{set\+Size(const int size)}{setSize(const int size)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf diag\+Matrix}$<$ T $>$\+::set\+Size (
+\begin{DoxyParamCaption}
+\item[{const int}]{size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classdiagMatrix_a4d5e30a4541016af727a1bcd0859d0bf}{}\label{classdiagMatrix_a4d5e30a4541016af727a1bcd0859d0bf}
+set size!
+
+\begin{DoxyPrecond}{Precondition}
+s must be postive 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+none 
+\end{DoxyPostcond}
+
+
+Reimplemented from \hyperlink{classMatrix_a1add3e066eaaa19d5056fc6e2cbc767c}{Matrix$<$ T $>$}.
+
+\index{diag\+Matrix@{diag\+Matrix}!switch\+Rows@{switch\+Rows}}
+\index{switch\+Rows@{switch\+Rows}!diag\+Matrix@{diag\+Matrix}}
+\subsubsection[{\texorpdfstring{switch\+Rows(const int i, const int j)}{switchRows(const int i, const int j)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf diag\+Matrix}$<$ T $>$\+::switch\+Rows (
+\begin{DoxyParamCaption}
+\item[{const int}]{i, }
+\item[{const int}]{j}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classdiagMatrix_a5ca87626d38ddff137d187e77d88c442}{}\label{classdiagMatrix_a5ca87626d38ddff137d187e77d88c442}
+row switcher
+
+\begin{DoxyPrecond}{Precondition}
+0 $<$ i,j $<$ size . Will throw length error otherwise 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+m\+\_\+matrix is modifed 
+\end{DoxyPostcond}
+
+
+Reimplemented from \hyperlink{classMatrix_a23bb949d4b4256dd253808e35d73d4b9}{Matrix$<$ T $>$}.
+
+\index{diag\+Matrix@{diag\+Matrix}!transpose@{transpose}}
+\index{transpose@{transpose}!diag\+Matrix@{diag\+Matrix}}
+\subsubsection[{\texorpdfstring{transpose()}{transpose()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf diag\+Matrix}$<$ T $>$ {\bf diag\+Matrix}$<$ T $>$\+::transpose (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classdiagMatrix_ae7656b1bf72b5a0dc3feca7c059c5443}{}\label{classdiagMatrix_ae7656b1bf72b5a0dc3feca7c059c5443}
+\hyperlink{classMatrix}{Matrix} transpose calculator Creates a new matrix with is a trasposed version of the CO \begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+a \hyperlink{classMatrix}{Matrix} is born 
+\end{DoxyPostcond}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{diag\+Matrix@{diag\+Matrix}!operator@{operator}}
+\index{operator@{operator}!diag\+Matrix@{diag\+Matrix}}
+\subsubsection[{\texorpdfstring{operator}{operator}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ ostream\& operator (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out, }
+\item[{{\bf diag\+Matrix}$<$ T $>$ \&}]{mat}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classdiagMatrix_a0f1009e2f7ff04ee7bce62b30ea36c16}{}\label{classdiagMatrix_a0f1009e2f7ff04ee7bce62b30ea36c16}
+Stream insertion operator for {\ttfamily \hyperlink{classdiagMatrix}{diag\+Matrix}}.
+
+\begin{DoxyPrecond}{Precondition}
+Stream insertion operator is defined for {\ttfamily T}. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The contents of the m\+\_\+matrix are printed to the ouptut stream. Each array is printed on a new row. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+the modified output stream. 
+\end{DoxyReturn}
+\index{diag\+Matrix@{diag\+Matrix}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!diag\+Matrix@{diag\+Matrix}}
+\subsubsection[{\texorpdfstring{operator$>$$>$}{operator>>}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ istream\& {\bf operator}$>$$>$ (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{in, }
+\item[{{\bf diag\+Matrix}$<$ T $>$ \&}]{mat}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classdiagMatrix_a867c8d02a49ed9a614dbbeb543ace706}{}\label{classdiagMatrix_a867c8d02a49ed9a614dbbeb543ace706}
+Stream insertion operator for {\ttfamily \hyperlink{classdiagMatrix}{diag\+Matrix}}.
+
+\begin{DoxyPrecond}{Precondition}
+Stream insertion operator is defined for {\ttfamily T}. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+the m\+\_\+matrix if filled with the input 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+the modified input stream. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{diagMatrix_8h}{diag\+Matrix.\+h}\item 
+diag\+Matrix.\+hpp\end{DoxyCompactItemize}

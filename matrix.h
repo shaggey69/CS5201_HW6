@@ -57,9 +57,25 @@ class Matrix
 
 	protected:
 
+		/*! the matrix (Array of array's)
+	  *
+	  */
 		MyArray <MyArray<T>> m_matrix;
 
+
+		/*! size var
+	  *
+	  */
+
 		int m_size;
+
+		/*! clear
+	  * dealoctes matrix 
+	  * \pre none
+	  * \post none
+	  *
+	  */
+
 
 		void clear();
 
@@ -201,7 +217,11 @@ class Matrix
 
 		virtual void switchRows (const int i, const int j) ; 
 
-
+		/*! get matrix
+		* returns m_matrix
+		* \pre none
+		* \post none
+		*/
 
 
 

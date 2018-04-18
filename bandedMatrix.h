@@ -3,7 +3,6 @@
  * the bandede matrix  class
  */
 /*
-/*
 # Banded Matrix class header
 # By: Ari Sherman
 # Class: CS5201 HW #6
@@ -37,6 +36,16 @@ ostream& operator<< (ostream& out ,  bandedMatrix<T> & mat);
  */
 template<class T>
 istream& operator>> (istream& in ,  bandedMatrix<T> & mat);
+
+
+
+/*! bandedMatrix calss
+ * Reprents a NxN bandedMatrix Matrix
+ * contains a:
+ * m_size - represting the size of N
+ * m_matrix - an myArray of myArrays represting the matrix
+ */
+
 
 template <class T>
 class bandedMatrix : public Matrix<T>

@@ -29,7 +29,7 @@ class deepDec
 
 	/*! Operator () calculator!
   * \pre T must have the: "*" "/" "-" binary operators defiend for it
-  * \post a New Array <T> is born
+  * \post a New Array<T> is born
   *	\return steepest descent result for Ax=b. Where A is the Symetric Matrix and 
   * b is the Array
   */

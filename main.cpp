@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
 				in >> my_array[i];
 
 			my_ans = my_steep(mySymMatrix,my_array);
-			cout << my_ans;
+			cout << endl << my_ans <<endl;
 
 
 		}

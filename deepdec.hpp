@@ -23,8 +23,10 @@ MyArray<T> deepDec<T>::operator()(const symMatrix<T> a,const MyArray<T> f) const
 
 	resi = f - (temp);
 
-	while (resi*resi > 0.00000001)
+	while (resi*resi > 0.00000000001)
 	{
+			cout << " " ;
+
 		temp1 = resi*resi; 
 		temp2 = a*resi*resi;
 		T alfha =  temp1 / temp2;
@@ -32,6 +34,7 @@ MyArray<T> deepDec<T>::operator()(const symMatrix<T> a,const MyArray<T> f) const
 		x = x + (temp3);
 		temp = a*x;
 		resi = f - (temp);
+
 	} 
 	return x;
 }

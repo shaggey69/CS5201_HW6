@@ -1,0 +1,298 @@
+\hypertarget{classbandedMatrix}{}\section{banded\+Matrix$<$ T $>$ Class Template Reference}
+\label{classbandedMatrix}\index{banded\+Matrix$<$ T $>$@{banded\+Matrix$<$ T $>$}}
+
+
+{\ttfamily \#include $<$banded\+Matrix.\+h$>$}
+
+
+
+Inheritance diagram for banded\+Matrix$<$ T $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=179pt]{classbandedMatrix__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for banded\+Matrix$<$ T $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{classbandedMatrix__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classbandedMatrix_a8a48b85c55ed7f4055e154600b0b50da}{banded\+Matrix} (const int size)
+\item 
+\hyperlink{classbandedMatrix}{banded\+Matrix}$<$ T $>$ \& \hyperlink{classbandedMatrix_aa4fd78d89e813451ca8567a89d548d82}{operator=} (const \hyperlink{classbandedMatrix}{banded\+Matrix}$<$ T $>$ \&rhs)
+\item 
+T \hyperlink{classbandedMatrix_ab409014ecb4a94ea53382d2eece20019}{operator()} (const int i, const int j)
+\item 
+\hyperlink{classMatrix}{Matrix}$<$ T $>$ \hyperlink{classbandedMatrix_a4d364d109a141351074d1e09691e4660}{operator+} (const \hyperlink{classMatrix}{Matrix}$<$ T $>$ \&rhs) const 
+\item 
+\hyperlink{classMatrix}{Matrix}$<$ T $>$ \hyperlink{classbandedMatrix_aa8262d21e509569c3a42894149fe24a4}{operator-\/} (const \hyperlink{classMatrix}{Matrix}$<$ T $>$ \&rhs) const 
+\item 
+\hyperlink{classMatrix}{Matrix}$<$ T $>$ \hyperlink{classbandedMatrix_a9692d4b7a37887a28801c1e058127e2f}{operator$\ast$} (const \hyperlink{classMatrix}{Matrix}$<$ T $>$ \&rhs) const 
+\item 
+\hyperlink{classMyArray}{My\+Array}$<$ T $>$ \hyperlink{classbandedMatrix_aa2ac54b2d447a8a73f8801cec81ccc8d}{operator$\ast$} (const \hyperlink{classMyArray}{My\+Array}$<$ T $>$ \&rhs) const 
+\item 
+void \hyperlink{classbandedMatrix_aea6df1bb2a0e8aee24666ced43c6b43e}{scaler\+Multi} (const T scaler)
+\item 
+void \hyperlink{classbandedMatrix_a633408c224f60b8190e74f86e4c968bd}{set\+Size} (const int size)
+\item 
+\hyperlink{classbandedMatrix}{banded\+Matrix}$<$ T $>$ \hyperlink{classbandedMatrix_a18b7f71042a3d584b7be2e67962f1b8d}{transpose} ()
+\item 
+void \hyperlink{classbandedMatrix_abf0098be065238b55c7f6f95d74ababc}{set\+Matrix} (const int i, const int j, const T x)
+\end{DoxyCompactItemize}
+\subsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+ostream \& \hyperlink{classbandedMatrix_a290503bc1ea998a99cfe3719beb75636}{operator} (ostream \&out, \hyperlink{classbandedMatrix}{banded\+Matrix}$<$ T $>$ \&mat)
+\item 
+istream \& \hyperlink{classbandedMatrix_ae44c208638c8b9f8d6e52ccf0ead1a7b}{operator$>$$>$} (istream \&in, \hyperlink{classbandedMatrix}{banded\+Matrix}$<$ T $>$ \&mat)
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\\*
+class banded\+Matrix$<$ T $>$}
+
+\hyperlink{classbandedMatrix}{banded\+Matrix} calss Reprents a NxN \hyperlink{classbandedMatrix}{banded\+Matrix} \hyperlink{classMatrix}{Matrix} contains a\+: m\+\_\+size -\/ represting the size of N m\+\_\+matrix -\/ an my\+Array of my\+Arrays represting the matrix 
+
+\subsection{Constructor \& Destructor Documentation}
+\index{banded\+Matrix@{banded\+Matrix}!banded\+Matrix@{banded\+Matrix}}
+\index{banded\+Matrix@{banded\+Matrix}!banded\+Matrix@{banded\+Matrix}}
+\subsubsection[{\texorpdfstring{banded\+Matrix(const int size)}{bandedMatrix(const int size)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf banded\+Matrix}$<$ T $>$\+::{\bf banded\+Matrix} (
+\begin{DoxyParamCaption}
+\item[{const int}]{size}
+\end{DoxyParamCaption}
+)}\hypertarget{classbandedMatrix_a8a48b85c55ed7f4055e154600b0b50da}{}\label{classbandedMatrix_a8a48b85c55ed7f4055e154600b0b50da}
+initialize constructor. A new \hyperlink{classbandedMatrix}{banded\+Matrix} is craeted with dimensions equel to \char`\"{}size\char`\"{} \begin{DoxyPrecond}{Precondition}
+size must be bigger then 0! Will throw a a length Error otherwise 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+a \hyperlink{classbandedMatrix}{banded\+Matrix} is born! 
+\end{DoxyPostcond}
+
+
+\subsection{Member Function Documentation}
+\index{banded\+Matrix@{banded\+Matrix}!operator()@{operator()}}
+\index{operator()@{operator()}!banded\+Matrix@{banded\+Matrix}}
+\subsubsection[{\texorpdfstring{operator()(const int i, const int j)}{operator()(const int i, const int j)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ T {\bf banded\+Matrix}$<$ T $>$\+::{\bf operator}() (
+\begin{DoxyParamCaption}
+\item[{const int}]{i, }
+\item[{const int}]{j}
+\end{DoxyParamCaption}
+)}\hypertarget{classbandedMatrix_ab409014ecb4a94ea53382d2eece20019}{}\label{classbandedMatrix_ab409014ecb4a94ea53382d2eece20019}
+operaotr () returns value of m\+\_\+matrix\mbox{[}i\mbox{]}\mbox{[}j\mbox{]} \begin{DoxyPrecond}{Precondition}
+0 $<$ i,j $<$size 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+none 
+\end{DoxyPostcond}
+\index{banded\+Matrix@{banded\+Matrix}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!banded\+Matrix@{banded\+Matrix}}
+\subsubsection[{\texorpdfstring{operator$\ast$(const Matrix$<$ T $>$ \&rhs) const }{operator*(const Matrix< T > &rhs) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf Matrix}$<$ T $>$ {\bf banded\+Matrix}$<$ T $>$\+::{\bf operator}$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix}$<$ T $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classbandedMatrix_a9692d4b7a37887a28801c1e058127e2f}{}\label{classbandedMatrix_a9692d4b7a37887a28801c1e058127e2f}
+\hyperlink{classMatrix}{Matrix} multiplication caclualtes the multiplication of \hyperlink{classbandedMatrix}{banded\+Matrix} and matrix, returens a new matrix with the calculated values \begin{DoxyPrecond}{Precondition}
+size of CO must be equel to rhs, Will throw a a length Error otherwise. \char`\"{}$\ast$\char`\"{} binary operator must be defiend for T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+a matrix is born! 
+\end{DoxyPostcond}
+
+
+Reimplemented from \hyperlink{classMatrix_a358516deb804403fb91256a5a269d1e2}{Matrix$<$ T $>$}.
+
+\index{banded\+Matrix@{banded\+Matrix}!operator$\ast$@{operator$\ast$}}
+\index{operator$\ast$@{operator$\ast$}!banded\+Matrix@{banded\+Matrix}}
+\subsubsection[{\texorpdfstring{operator$\ast$(const My\+Array$<$ T $>$ \&rhs) const }{operator*(const MyArray< T > &rhs) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf My\+Array}$<$ T $>$ {\bf banded\+Matrix}$<$ T $>$\+::{\bf operator}$\ast$ (
+\begin{DoxyParamCaption}
+\item[{const {\bf My\+Array}$<$ T $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classbandedMatrix_aa2ac54b2d447a8a73f8801cec81ccc8d}{}\label{classbandedMatrix_aa2ac54b2d447a8a73f8801cec81ccc8d}
+\hyperlink{classMatrix}{Matrix} -\/ Vector multiplication caclualtes the multiplication of a \hyperlink{classbandedMatrix}{banded\+Matrix} with an Array and returens a new Vector with the calculated values \begin{DoxyPrecond}{Precondition}
+size of CO must be equel to rhs array size! Will throw a a length Error otherwise. \char`\"{}$\ast$\char`\"{} binary operator must be defiend for T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+a Vector is born! 
+\end{DoxyPostcond}
+
+
+Reimplemented from \hyperlink{classMatrix_a70c46247336f74291cc3e1b2fb800a34}{Matrix$<$ T $>$}.
+
+\index{banded\+Matrix@{banded\+Matrix}!operator+@{operator+}}
+\index{operator+@{operator+}!banded\+Matrix@{banded\+Matrix}}
+\subsubsection[{\texorpdfstring{operator+(const Matrix$<$ T $>$ \&rhs) const }{operator+(const Matrix< T > &rhs) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf Matrix}$<$ T $>$ {\bf banded\+Matrix}$<$ T $>$\+::{\bf operator}+ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix}$<$ T $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classbandedMatrix_a4d364d109a141351074d1e09691e4660}{}\label{classbandedMatrix_a4d364d109a141351074d1e09691e4660}
+
+\begin{DoxyItemize}
+\item operator adds the sum of CO to rhs, retures a new \hyperlink{classMatrix}{Matrix} with the calculated values \begin{DoxyPrecond}{Precondition}
+size of CO must be equel to rhs, Will throw a a length Error otherwise. \char`\"{}+\char`\"{} binary operator must be defiend for T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+a matrix is born! 
+\end{DoxyPostcond}
+
+\end{DoxyItemize}
+
+Reimplemented from \hyperlink{classMatrix_a9db4b4074daa2112eab910c7902fc5d9}{Matrix$<$ T $>$}.
+
+\index{banded\+Matrix@{banded\+Matrix}!operator-\/@{operator-\/}}
+\index{operator-\/@{operator-\/}!banded\+Matrix@{banded\+Matrix}}
+\subsubsection[{\texorpdfstring{operator-\/(const Matrix$<$ T $>$ \&rhs) const }{operator-(const Matrix< T > &rhs) const }}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf Matrix}$<$ T $>$ {\bf banded\+Matrix}$<$ T $>$\+::{\bf operator}-\/ (
+\begin{DoxyParamCaption}
+\item[{const {\bf Matrix}$<$ T $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+) const\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classbandedMatrix_aa8262d21e509569c3a42894149fe24a4}{}\label{classbandedMatrix_aa8262d21e509569c3a42894149fe24a4}
+
+\begin{DoxyItemize}
+\item operator adds the sum of CO to rhs, retures a new \hyperlink{classMatrix}{Matrix} with the calculated values \begin{DoxyPrecond}{Precondition}
+size of CO must be equel to rhs, Will throw a a length Error otherwise. \char`\"{}-\/\char`\"{} binary operator must be defiend for T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+a matrix is born! 
+\end{DoxyPostcond}
+
+\end{DoxyItemize}
+
+Reimplemented from \hyperlink{classMatrix_a06a7f018ed353f0a8239a80ec8403be6}{Matrix$<$ T $>$}.
+
+\index{banded\+Matrix@{banded\+Matrix}!operator=@{operator=}}
+\index{operator=@{operator=}!banded\+Matrix@{banded\+Matrix}}
+\subsubsection[{\texorpdfstring{operator=(const banded\+Matrix$<$ T $>$ \&rhs)}{operator=(const bandedMatrix< T > &rhs)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf banded\+Matrix}$<$ T $>$ \& {\bf banded\+Matrix}$<$ T $>$\+::{\bf operator}= (
+\begin{DoxyParamCaption}
+\item[{const {\bf banded\+Matrix}$<$ T $>$ \&}]{rhs}
+\end{DoxyParamCaption}
+)}\hypertarget{classbandedMatrix_aa4fd78d89e813451ca8567a89d548d82}{}\label{classbandedMatrix_aa4fd78d89e813451ca8567a89d548d82}
+= assignment turns the CO \hyperlink{classbandedMatrix}{banded\+Matrix} into R\+HS \hyperlink{classbandedMatrix}{banded\+Matrix} \begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+none 
+\end{DoxyPostcond}
+\index{banded\+Matrix@{banded\+Matrix}!scaler\+Multi@{scaler\+Multi}}
+\index{scaler\+Multi@{scaler\+Multi}!banded\+Matrix@{banded\+Matrix}}
+\subsubsection[{\texorpdfstring{scaler\+Multi(const T scaler)}{scalerMulti(const T scaler)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf banded\+Matrix}$<$ T $>$\+::scaler\+Multi (
+\begin{DoxyParamCaption}
+\item[{const T}]{scaler}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classbandedMatrix_aea6df1bb2a0e8aee24666ced43c6b43e}{}\label{classbandedMatrix_aea6df1bb2a0e8aee24666ced43c6b43e}
+\hyperlink{classMatrix}{Matrix} Scaler multiplication caclualtes the multiplication of a \hyperlink{classbandedMatrix}{banded\+Matrix} with a scaler and modifies the CO m\+\_\+matrix with calculation \begin{DoxyPrecond}{Precondition}
+\char`\"{}$\ast$\char`\"{} binary operator must be defiend for T. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+none 
+\end{DoxyPostcond}
+
+
+Reimplemented from \hyperlink{classMatrix_aba8c673e5ca3bcc56a9bad1a1c0fed23}{Matrix$<$ T $>$}.
+
+\index{banded\+Matrix@{banded\+Matrix}!set\+Matrix@{set\+Matrix}}
+\index{set\+Matrix@{set\+Matrix}!banded\+Matrix@{banded\+Matrix}}
+\subsubsection[{\texorpdfstring{set\+Matrix(const int i, const int j, const T x)}{setMatrix(const int i, const int j, const T x)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf banded\+Matrix}$<$ T $>$\+::set\+Matrix (
+\begin{DoxyParamCaption}
+\item[{const int}]{i, }
+\item[{const int}]{j, }
+\item[{const T}]{x}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classbandedMatrix_abf0098be065238b55c7f6f95d74ababc}{}\label{classbandedMatrix_abf0098be065238b55c7f6f95d74ababc}
+Set \hyperlink{classMatrix}{Matrix} changes the value of m\+\_\+matrix\mbox{[}i\mbox{]}\mbox{[}j\mbox{]} and m\+\_\+matrix\mbox{[}j\mbox{]}\mbox{[}i\mbox{]} to x \begin{DoxyPrecond}{Precondition}
+0 $<$ i,j $<$size 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+modified m\+\_\+matrix 
+\end{DoxyPostcond}
+
+
+Reimplemented from \hyperlink{classMatrix_a0cf31a462707441cbbab037190c88f33}{Matrix$<$ T $>$}.
+
+\index{banded\+Matrix@{banded\+Matrix}!set\+Size@{set\+Size}}
+\index{set\+Size@{set\+Size}!banded\+Matrix@{banded\+Matrix}}
+\subsubsection[{\texorpdfstring{set\+Size(const int size)}{setSize(const int size)}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ void {\bf banded\+Matrix}$<$ T $>$\+::set\+Size (
+\begin{DoxyParamCaption}
+\item[{const int}]{size}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}\hypertarget{classbandedMatrix_a633408c224f60b8190e74f86e4c968bd}{}\label{classbandedMatrix_a633408c224f60b8190e74f86e4c968bd}
+set size!
+
+\begin{DoxyPrecond}{Precondition}
+s must be postive 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+none 
+\end{DoxyPostcond}
+
+
+Reimplemented from \hyperlink{classMatrix_a1add3e066eaaa19d5056fc6e2cbc767c}{Matrix$<$ T $>$}.
+
+\index{banded\+Matrix@{banded\+Matrix}!transpose@{transpose}}
+\index{transpose@{transpose}!banded\+Matrix@{banded\+Matrix}}
+\subsubsection[{\texorpdfstring{transpose()}{transpose()}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$typename T $>$ {\bf banded\+Matrix}$<$ T $>$ {\bf banded\+Matrix}$<$ T $>$\+::transpose (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}\hypertarget{classbandedMatrix_a18b7f71042a3d584b7be2e67962f1b8d}{}\label{classbandedMatrix_a18b7f71042a3d584b7be2e67962f1b8d}
+\hyperlink{classMatrix}{Matrix} transpose calculator Creates a new matrix with is a trasposed version of the CO \begin{DoxyPrecond}{Precondition}
+none 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+a \hyperlink{classMatrix}{Matrix} is born 
+\end{DoxyPostcond}
+
+
+\subsection{Friends And Related Function Documentation}
+\index{banded\+Matrix@{banded\+Matrix}!operator@{operator}}
+\index{operator@{operator}!banded\+Matrix@{banded\+Matrix}}
+\subsubsection[{\texorpdfstring{operator}{operator}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ ostream\& operator (
+\begin{DoxyParamCaption}
+\item[{ostream \&}]{out, }
+\item[{{\bf banded\+Matrix}$<$ T $>$ \&}]{mat}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classbandedMatrix_a290503bc1ea998a99cfe3719beb75636}{}\label{classbandedMatrix_a290503bc1ea998a99cfe3719beb75636}
+Stream insertion operator for {\ttfamily \hyperlink{classbandedMatrix}{banded\+Matrix}}.
+
+\begin{DoxyPrecond}{Precondition}
+Stream insertion operator is defined for {\ttfamily T}. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+The contents of the m\+\_\+matrix are printed to the ouptut stream. Each array is printed on a new row. 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+the modified output stream. 
+\end{DoxyReturn}
+\index{banded\+Matrix@{banded\+Matrix}!operator$>$$>$@{operator$>$$>$}}
+\index{operator$>$$>$@{operator$>$$>$}!banded\+Matrix@{banded\+Matrix}}
+\subsubsection[{\texorpdfstring{operator$>$$>$}{operator>>}}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T$>$ istream\& {\bf operator}$>$$>$ (
+\begin{DoxyParamCaption}
+\item[{istream \&}]{in, }
+\item[{{\bf banded\+Matrix}$<$ T $>$ \&}]{mat}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [friend]}}\hypertarget{classbandedMatrix_ae44c208638c8b9f8d6e52ccf0ead1a7b}{}\label{classbandedMatrix_ae44c208638c8b9f8d6e52ccf0ead1a7b}
+Stream insertion operator for {\ttfamily \hyperlink{classbandedMatrix}{banded\+Matrix}}.
+
+\begin{DoxyPrecond}{Precondition}
+Stream insertion operator is defined for {\ttfamily T}. 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondition}
+the m\+\_\+matrix if filled with the input 
+\end{DoxyPostcond}
+\begin{DoxyReturn}{Returns}
+the modified input stream. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{bandedMatrix_8h}{banded\+Matrix.\+h}\item 
+banded\+Matrix.\+hpp\end{DoxyCompactItemize}
