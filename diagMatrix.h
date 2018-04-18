@@ -1,6 +1,6 @@
 /*! \file
  *
- * the Diag matrix  class
+ * the Diag matrix class
  */
 /*
 /*
