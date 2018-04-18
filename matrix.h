@@ -33,6 +33,14 @@ class Matrix;
 template<class T>
 ostream& operator<< (ostream& out ,  Matrix<T> & mat);
 
+/*! Stream insertion operator for `Matrix`.
+ *
+ * \pre Stream insertion operator is defined for `T`.
+ * \post the m_matrix if filled with the input
+ * \return the modified input stream.
+ *
+ */
+
 template<class T>
 istream& operator>> (istream& in ,  Matrix<T> & mat);
 
@@ -197,7 +205,7 @@ class Matrix
 
 
 
-	MyArray <MyArray<T>> getMatrix() const {return m_matrix;}
+		MyArray <MyArray<T>> getMatrix() const {return m_matrix;}
 
 
 
@@ -222,6 +230,13 @@ class Matrix
 
 		virtual void setSize(const int s);
 
+  	/*! set matrix!
+	  * changes value of m_matrix[i][j] to x
+	  * \pre 0 < i,j < size.
+	  * \post m_matrix modified
+	  */
+
+
 		virtual void setMatrix(const int i ,const int j, const T x);
 
 
@@ -232,10 +247,21 @@ class Matrix
 	  */
 
 		virtual Matrix<T> transpose() const ;
-
-		
+	
+		/*! operaotr ()
+		* returns value of m_matrix[i][j]
+		* \pre 0 < i,j <size
+		* \post none
+		*/
 
 		virtual T operator()(const int i,const int j ) const;
+	
+		/*! is diagonally dominant
+	  * returns true if matrix is diagonally dominant. 
+	  * false otherwise.
+	  * \pre none
+	  * \post none
+	  */
 
 		virtual bool isDiagDom() const ;
 
@@ -250,6 +276,13 @@ class Matrix
 
 		  friend ostream& operator<< <T> (ostream& out ,  Matrix<T> & mat);
 
+		/*! Stream insertion operator for `Matrix`.
+		 *
+		 * \pre Stream insertion operator is defined for `T`.
+		 * \post the m_matrix if filled with the input
+		 * \return the modified input stream.
+		 *
+		 */
 
 		  friend istream& operator>> <T> (istream& in ,  Matrix<T> & mat);
 

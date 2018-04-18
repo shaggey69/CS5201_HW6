@@ -175,23 +175,65 @@ public:
   
   void insert(const T & x, int pos);
 
-/*! Stream insertion operator for `myArray`.
+   /*! zero vector checker
+  * return true if vector is the zero vector. false otherwise
+  * \pre none
+  * \post none
+  */
+
+
+  bool isZeroVec();
+
+    /*! vector normalizations
+    * caclualtes the multiplication of 2 vectoes and returens
+    * the norm value
+    * \pre size of CO must be equel to rhs, Will throw a
+    * a length Error otherwise. "*" binary operator
+    * must be defiend for T.
+    * \post none
+    */
+
+  T operator*(const  MyArray<T> & rhs) const;
+
+    /*! scaler multiplication
+    * caclualtes the multiplication of a matrixs with a scler
+    * \pre "*" binary operator must be defiend for T.
+    * \post a vecotr is born!
+    */
+  
+  MyArray<T> operator*(const  T & scaler) const;
+
+    /*! + operator
+    * adds the sum of CO to rhs, retures a new Vector 
+    * with the calculated values
+    * \pre size of CO must be equel to rhs, Will throw a
+    * a length Error otherwise. "+" binary operator
+    * must be defiend for T.
+    * \post a Vector is born!
+    */
+
+
+  MyArray<T> operator+(const  MyArray<T> & rhs) const;
+
+
+    /*! - operator
+    * adds the sum of CO to rhs, retures a new Vector 
+    * with the calculated values
+    * \pre size of CO must be equel to rhs, Will throw a
+    * a length Error otherwise. "-" binary operator
+    * must be defiend for T.
+    * \post a Vector is born!
+    */
+
+  MyArray<T> operator-(const  MyArray<T> & rhs) const;
+
+  /*! Stream insertion operator for `myArray`.
  *
  * \pre Stream insertion operator is defined for `T`.
  * \post The contents of the intervalData are printed to the ouptut stream.
  * \return the modified output stream.
  *
  */
-
-  bool isZeroVec();
-
-  T operator*(const  MyArray<T> & rhs) const;
-  
-  MyArray<T> operator*(const  T & scaler) const;
-
-  MyArray<T> operator+(const  MyArray<T> & rhs) const;
-
-  MyArray<T> operator-(const  MyArray<T> & rhs) const;
 
   friend ostream& operator<< <T> (ostream& out , MyArray<T> & arr);
 

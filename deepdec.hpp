@@ -1,8 +1,8 @@
 /*
-header function for Bell Curve implmention
+steepest descent implmention
 By: Ari Sherman
-Class: CS5201 HW #4
-Date: 3.12.18
+Class: CS5201 HW #6
+Date: 4.18.18
 */
 // operator ()
 template <typename T>
@@ -10,6 +10,8 @@ MyArray<T> deepDec<T>::operator()(const symMatrix<T> a,const MyArray<T> f) const
 {
 	if (!a.isDiagDom())
 		throw std::length_error("Matrix must be Diagonal Dominate!");
+	if (a.getSize() != f.getSize())
+		throw std::length_error("Matrix and array must be of same size!");
 	
 	MyArray<T> resi(a.getSize());
 	MyArray<T> x (f);
@@ -18,7 +20,6 @@ MyArray<T> deepDec<T>::operator()(const symMatrix<T> a,const MyArray<T> f) const
 	MyArray<T> temp3;
 	T temp1 ;
 	T temp2 ;
-
 
 	resi = f - (temp);
 
@@ -33,7 +34,5 @@ MyArray<T> deepDec<T>::operator()(const symMatrix<T> a,const MyArray<T> f) const
 		resi = f - (temp);
 	} 
 	return x;
-
-
 }
 

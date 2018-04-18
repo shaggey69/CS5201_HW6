@@ -1,9 +1,9 @@
 /*! \file
  *
- * the  class
+ * the steepest descent  class
  */
 /*
-header function for  Bell Curve class
+header function for steepest descent class
 By: Ari Sherman
 Class: CS5201 HW #6
 Date: 4.18.18
@@ -17,7 +17,7 @@ Date: 4.18.18
 
 
 /*!
- * the Bell Curve calculation class
+ * the steepest descent calculation class
  *
 */
 #include <cmath>
@@ -28,10 +28,10 @@ class deepDec
 	public:
 
 	/*! Operator () calculator!
-	* \s
-  * \pre T must have the "*" binary operator defiend for it
-  * \post none
-  *	\return the bell curve value for given "Num"
+  * \pre T must have the: "*" "/" "-" binary operators defiend for it
+  * \post a New Array <T> is born
+  *	\return steepest descent result for Ax=b. Where A is the Symetric Matrix and 
+  * b is the Array
   */
 	MyArray<T> operator()(const symMatrix<T> mat,const MyArray<T> arr) const;
 };

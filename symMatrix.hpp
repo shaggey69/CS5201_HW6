@@ -177,13 +177,6 @@ symMatrix<T> symMatrix<T>::transpose()
 }
 
 template <typename T>   
-void symMatrix<T>::switchRows (const int i, const int j) 
-{
-		throw std::length_error("no swithcing rows on symmetric Matrix"); 
-		return;
-}
-
-template <typename T>   
 T symMatrix<T>::operator()(const int i,const int j) const
 {
 	if (i >= j)
